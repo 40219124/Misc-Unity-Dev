@@ -1,0 +1,8 @@
+﻿TheNebula/Assets/ExampleAssets
+TheNebula/.vs
+TheNebula/Assets/Presets
+TheNebula/Library
+TheNebula/UserSettings
+TheNebula/.vsconfig
+*.csproj
+*.sln

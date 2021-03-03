@@ -1,0 +1,786 @@
+Using pre-set license
+Built from '2020.2/release' branch; Version is '2020.2.2f1 (068178b99f32) revision 426360'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19042.804; Version 2009; 64bit' Language: 'en' Physical Memory: 16328 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+D:\Unity Installations\2020.2.2f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/Repos/Misc-Unity-Dev/TheNebula
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+56509
+Successfully changed project path to: D:/Repos/Misc-Unity-Dev/TheNebula
+D:/Repos/Misc-Unity-Dev/TheNebula
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 83.74 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.2.2f1 (068178b99f32)
+[Subsystems] Discovering subsystems at path D:/Unity Installations/2020.2.2f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Repos/Misc-Unity-Dev/TheNebula/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 970 (ID=0x13c2)
+    Vendor:   
+    VRAM:     4043 MB
+    Driver:   27.21.14.6089
+Initialize mono
+Mono path[0] = 'D:/Unity Installations/2020.2.2f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Unity Installations/2020.2.2f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'D:/Unity Installations/2020.2.2f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56412
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Unity Installations/2020.2.2f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: D:/Unity Installations/2020.2.2f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002772 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 62.91 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.668 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001283 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 70.05 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.879 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.16 seconds
+Refreshing native plugins compatible for Editor in 0.49 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2397 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 110.5 MB.
+System memory in use after: 108.4 MB.
+
+Unloading 45 unused Assets to reduce memory usage. Loaded Objects now: 2802.
+Total: 4.288400 ms (FindLiveObjects: 0.242500 ms CreateObjectMapping: 0.100800 ms MarkObjects: 2.201700 ms  DeleteObjects: 1.741400 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Readme.asset
+  artifactKey: Guid(83c2ed844a8c74b779a4c823d16594b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Readme.asset using Guid(83c2ed844a8c74b779a4c823d16594b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b3473d83357613cd2f6b35c5fc253af') in 0.170191 seconds
+  Import took 0.215577 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1420.945362 seconds.
+  path: Assets/Scripts
+  artifactKey: Guid(02a3527b6b33a924e8ec66aa805ea717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts using Guid(02a3527b6b33a924e8ec66aa805ea717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '924e43eeedbc414cd7a4a7272521ccfb') in 0.008142 seconds
+  Import took 0.024781 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.040342 seconds.
+  path: Assets/Scripts
+  artifactKey: Guid(02a3527b6b33a924e8ec66aa805ea717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts using Guid(02a3527b6b33a924e8ec66aa805ea717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '924e43eeedbc414cd7a4a7272521ccfb') in 0.003984 seconds
+  Import took 0.008661 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.536573 seconds.
+  path: Assets/Scripts/SimpleCameraController.cs
+  artifactKey: Guid(be76e5f14cfee674cb30b491fb72b09b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/SimpleCameraController.cs using Guid(be76e5f14cfee674cb30b491fb72b09b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '693e0ea9ff0d53e2a2cbee9a2257e979') in 0.018938 seconds
+  Import took 0.023155 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.068856 seconds.
+  path: Assets/Scripts/SimpleCameraController.cs
+  artifactKey: Guid(be76e5f14cfee674cb30b491fb72b09b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/SimpleCameraController.cs using Guid(be76e5f14cfee674cb30b491fb72b09b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '693e0ea9ff0d53e2a2cbee9a2257e979') in 0.005924 seconds
+  Import took 0.010353 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002465 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.50 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.218 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.56 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2322 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 107.6 MB.
+System memory in use after: 105.5 MB.
+
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 2804.
+Total: 4.352800 ms (FindLiveObjects: 0.255300 ms CreateObjectMapping: 0.101100 ms MarkObjects: 2.365500 ms  DeleteObjects: 1.628900 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 187.289148 seconds.
+  path: Assets
+  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a6e520b92ccfc61bcfa21a7bcab8468') in 0.015381 seconds
+  Import took 0.021234 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 26.953416 seconds.
+  path: Assets/UIHive
+  artifactKey: Guid(7cfc414ec7981f64583ffeac1c396bc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive using Guid(7cfc414ec7981f64583ffeac1c396bc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c99de27671ce742722439b5377b57e5f') in 0.009320 seconds
+  Import took 0.013536 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 57.677309 seconds.
+  path: Assets/UIHive/UIHiveLarva.cs
+  artifactKey: Guid(c5bc4ddbf2ed08d4a8338f51fdf08c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveLarva.cs using Guid(c5bc4ddbf2ed08d4a8338f51fdf08c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e51d6f71a29bcac407007b96a8072c74') in 0.019702 seconds
+  Import took 0.025793 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.010562 seconds.
+  path: Assets/UIHive/UIHiveLarva.cs
+  artifactKey: Guid(c5bc4ddbf2ed08d4a8338f51fdf08c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveLarva.cs using Guid(c5bc4ddbf2ed08d4a8338f51fdf08c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e51d6f71a29bcac407007b96a8072c74') in 0.011459 seconds
+  Import took 0.020674 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001439 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.51 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.566 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.81 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2323 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 107.8 MB.
+System memory in use after: 105.8 MB.
+
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 2807.
+Total: 4.979500 ms (FindLiveObjects: 0.353700 ms CreateObjectMapping: 0.169600 ms MarkObjects: 2.651100 ms  DeleteObjects: 1.802900 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 4719.282669 seconds.
+  path: Assets/UIHive/UIHiveLarva.cs
+  artifactKey: Guid(c5bc4ddbf2ed08d4a8338f51fdf08c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveLarva.cs using Guid(c5bc4ddbf2ed08d4a8338f51fdf08c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '575bce0e9e1009bf7140774291de3fb2') in 0.011988 seconds
+  Import took 0.025988 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.134228 seconds.
+  path: Assets/UIHive/UIHiveLarva.cs
+  artifactKey: Guid(c5bc4ddbf2ed08d4a8338f51fdf08c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveLarva.cs using Guid(c5bc4ddbf2ed08d4a8338f51fdf08c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '575bce0e9e1009bf7140774291de3fb2') in 0.010481 seconds
+  Import took 0.019509 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001544 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.50 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.269 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.58 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2323 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.0 MB.
+System memory in use after: 106.0 MB.
+
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 2809.
+Total: 4.263600 ms (FindLiveObjects: 0.265000 ms CreateObjectMapping: 0.103800 ms MarkObjects: 2.141800 ms  DeleteObjects: 1.751300 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.081828 seconds.
+  path: Assets/UIHive/UIHiveLarva.cs
+  artifactKey: Guid(c5bc4ddbf2ed08d4a8338f51fdf08c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveLarva.cs using Guid(c5bc4ddbf2ed08d4a8338f51fdf08c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54f50a01337de868dfb712cbf91ed790') in 0.007538 seconds
+  Import took 0.027592 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001404 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.51 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.190 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.49 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2323 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.2 MB.
+System memory in use after: 106.2 MB.
+
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 2811.
+Total: 4.219700 ms (FindLiveObjects: 0.249300 ms CreateObjectMapping: 0.100500 ms MarkObjects: 2.156600 ms  DeleteObjects: 1.711500 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 58.287310 seconds.
+  path: Assets/UIHive/UIHiveLarva.cs
+  artifactKey: Guid(c5bc4ddbf2ed08d4a8338f51fdf08c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveLarva.cs using Guid(c5bc4ddbf2ed08d4a8338f51fdf08c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2efcd142fa9a3ac869d9843d06649eb') in 0.008494 seconds
+  Import took 0.013214 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.137211 seconds.
+  path: Assets/UIHive/UIHiveLarva.cs
+  artifactKey: Guid(c5bc4ddbf2ed08d4a8338f51fdf08c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveLarva.cs using Guid(c5bc4ddbf2ed08d4a8338f51fdf08c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2efcd142fa9a3ac869d9843d06649eb') in 0.004647 seconds
+  Import took 0.010381 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001366 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.56 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.195 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.48 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2323 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.2 MB.
+System memory in use after: 106.2 MB.
+
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 2813.
+Total: 4.107900 ms (FindLiveObjects: 0.239300 ms CreateObjectMapping: 0.097300 ms MarkObjects: 2.037300 ms  DeleteObjects: 1.732600 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.054778 seconds.
+  path: Assets/UIHive/UIHiveBrain.cs
+  artifactKey: Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveBrain.cs using Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5821dde3d305d8e724f7d9a5b78938c2') in 0.049800 seconds
+  Import took 0.098830 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001736 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.34 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.085 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.59 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2324 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.6 MB.
+System memory in use after: 106.5 MB.
+
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 2816.
+Total: 5.546300 ms (FindLiveObjects: 0.267700 ms CreateObjectMapping: 0.158100 ms MarkObjects: 3.204600 ms  DeleteObjects: 1.914000 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 48.447573 seconds.
+  path: Assets/UIHive/UIHiveBrain.cs
+  artifactKey: Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveBrain.cs using Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8206d0b84df46332fd63bdcb2f768b0') in 0.015033 seconds
+  Import took 0.020917 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.135756 seconds.
+  path: Assets/UIHive/UIHiveBrain.cs
+  artifactKey: Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveBrain.cs using Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8206d0b84df46332fd63bdcb2f768b0') in 0.006585 seconds
+  Import took 0.013041 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001386 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.263 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.50 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2324 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.8 MB.
+System memory in use after: 106.7 MB.
+
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 2818.
+Total: 5.689700 ms (FindLiveObjects: 1.714700 ms CreateObjectMapping: 0.227800 ms MarkObjects: 1.935900 ms  DeleteObjects: 1.809400 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 46.936177 seconds.
+  path: Assets/UIHive/UIHiveBrain.cs
+  artifactKey: Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveBrain.cs using Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ad7152b5159323b45b443c39b02f2ab') in 0.015956 seconds
+  Import took 0.036654 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.116569 seconds.
+  path: Assets/UIHive/UIHiveBrain.cs
+  artifactKey: Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveBrain.cs using Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ad7152b5159323b45b443c39b02f2ab') in 0.017955 seconds
+  Import took 0.037257 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001772 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.61 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.332 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.49 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2324 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 109.0 MB.
+System memory in use after: 106.9 MB.
+
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 2820.
+Total: 4.103500 ms (FindLiveObjects: 0.241400 ms CreateObjectMapping: 0.097900 ms MarkObjects: 2.040000 ms  DeleteObjects: 1.722700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.817491 seconds.
+  path: Assets/UIHive/UIHiveBrain.cs
+  artifactKey: Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveBrain.cs using Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33a56b6a0b50531b9c6fe0e4e9bf4af1') in 0.012358 seconds
+  Import took 0.043426 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.115033 seconds.
+  path: Assets/UIHive/UIHiveBrain.cs
+  artifactKey: Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveBrain.cs using Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33a56b6a0b50531b9c6fe0e4e9bf4af1') in 0.009654 seconds
+  Import took 0.018279 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 48.582033 seconds.
+  path: Assets/UIHive/UIHiveBrain.cs
+  artifactKey: Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveBrain.cs using Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a568efcc71d885e4854157a6b3f99861') in 0.009486 seconds
+  Import took 0.030870 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.033494 seconds.
+  path: Assets/UIHive/UIHiveBrain.cs
+  artifactKey: Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveBrain.cs using Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a568efcc71d885e4854157a6b3f99861') in 0.007549 seconds
+  Import took 0.012839 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.281268 seconds.
+  path: Assets/UIHive/UIHiveBrain.cs
+  artifactKey: Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveBrain.cs using Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13b15ea382de60ae1eaeeddc13f7f9ab') in 0.009092 seconds
+  Import took 0.013907 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001419 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.50 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.218 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.51 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2324 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 109.1 MB.
+System memory in use after: 107.1 MB.
+
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 2822.
+Total: 6.906500 ms (FindLiveObjects: 0.359600 ms CreateObjectMapping: 2.031200 ms MarkObjects: 2.425800 ms  DeleteObjects: 2.087600 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001377 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.50 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.171 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.51 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2324 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 109.2 MB.
+System memory in use after: 107.2 MB.
+
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 2824.
+Total: 3.922900 ms (FindLiveObjects: 0.242600 ms CreateObjectMapping: 0.099900 ms MarkObjects: 1.878000 ms  DeleteObjects: 1.700900 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 249.534503 seconds.
+  path: Assets/UIHive/UIHiveBrain.cs
+  artifactKey: Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveBrain.cs using Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '482e448e9ecab248db641409f23b28f6') in 0.010100 seconds
+  Import took 0.034919 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.114060 seconds.
+  path: Assets/UIHive/UIHiveBrain.cs
+  artifactKey: Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveBrain.cs using Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '482e448e9ecab248db641409f23b28f6') in 0.015340 seconds
+  Import took 0.021907 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001405 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.50 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.185 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.15 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2324 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 109.4 MB.
+System memory in use after: 107.3 MB.
+
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 2826.
+Total: 4.235200 ms (FindLiveObjects: 0.351300 ms CreateObjectMapping: 0.114200 ms MarkObjects: 2.008600 ms  DeleteObjects: 1.759500 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 28.843260 seconds.
+  path: Assets/UIHive/UIHiveBrain.cs
+  artifactKey: Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveBrain.cs using Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '425204a4201c83f073ac90eae7bae765') in 0.012938 seconds
+  Import took 0.026425 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.115935 seconds.
+  path: Assets/UIHive/UIHiveBrain.cs
+  artifactKey: Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveBrain.cs using Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '425204a4201c83f073ac90eae7bae765') in 0.006326 seconds
+  Import took 0.010766 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001888 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.50 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.204 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.62 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2324 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.7 MB.
+System memory in use after: 106.6 MB.
+
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 2828.
+Total: 4.454200 ms (FindLiveObjects: 0.253600 ms CreateObjectMapping: 0.099900 ms MarkObjects: 2.196400 ms  DeleteObjects: 1.902100 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 28.053416 seconds.
+  path: Assets/UIHive/UIHiveBrain.cs
+  artifactKey: Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveBrain.cs using Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb07d1a14a02e5a4618747745d833a64') in 0.010690 seconds
+  Import took 0.022120 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.141870 seconds.
+  path: Assets/UIHive/UIHiveBrain.cs
+  artifactKey: Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveBrain.cs using Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb07d1a14a02e5a4618747745d833a64') in 0.016612 seconds
+  Import took 0.067534 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001339 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.49 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.201 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.51 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2324 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.9 MB.
+System memory in use after: 106.8 MB.
+
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 2830.
+Total: 4.042600 ms (FindLiveObjects: 0.255800 ms CreateObjectMapping: 0.102700 ms MarkObjects: 1.957000 ms  DeleteObjects: 1.725600 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.059366 seconds.
+  path: Assets/UIHive/UIHiveBrain.cs
+  artifactKey: Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveBrain.cs using Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf8f7655b0d1484d1d376e547f531e1e') in 0.009463 seconds
+  Import took 0.013809 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001384 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.70 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.189 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 2.68 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2324 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 109.0 MB.
+System memory in use after: 107.0 MB.
+
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 2832.
+Total: 4.318600 ms (FindLiveObjects: 0.259100 ms CreateObjectMapping: 0.103100 ms MarkObjects: 2.175700 ms  DeleteObjects: 1.777800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.108532 seconds.
+  path: Assets/UIHive/UIHiveBrain.cs
+  artifactKey: Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveBrain.cs using Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c5d1340c124e2653d18348c7717c312') in 0.017826 seconds
+  Import took 0.023387 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.128115 seconds.
+  path: Assets/UIHive/UIHiveBrain.cs
+  artifactKey: Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIHive/UIHiveBrain.cs using Guid(28d64f6947d0908498981cadabed2e3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c5d1340c124e2653d18348c7717c312') in 0.010031 seconds
+  Import took 0.031982 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001395 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.49 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.188 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.49 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2324 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 109.1 MB.
+System memory in use after: 107.1 MB.
+
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 2834.
+Total: 4.021000 ms (FindLiveObjects: 0.245500 ms CreateObjectMapping: 0.103500 ms MarkObjects: 1.940200 ms  DeleteObjects: 1.729900 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001997 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.49 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.172 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2324 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 109.4 MB.
+System memory in use after: 107.3 MB.
+
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 2836.
+Total: 4.554400 ms (FindLiveObjects: 0.267100 ms CreateObjectMapping: 0.127900 ms MarkObjects: 2.206400 ms  DeleteObjects: 1.951100 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001442 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.48 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.200 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.49 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2324 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.6 MB.
+System memory in use after: 106.5 MB.
+
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 2838.
+Total: 4.220000 ms (FindLiveObjects: 0.256300 ms CreateObjectMapping: 0.096600 ms MarkObjects: 2.110100 ms  DeleteObjects: 1.755100 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
