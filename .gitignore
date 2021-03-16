@@ -6,3 +6,5 @@ TheNebula/UserSettings
 TheNebula/.vsconfig
 *.csproj
 *.sln
+TheNebula/Logs
+TheNebula/obj
