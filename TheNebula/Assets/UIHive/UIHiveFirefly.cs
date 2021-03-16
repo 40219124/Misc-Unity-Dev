@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class UIHiveFirefly : MonoBehaviour, IEventSystemHandler, ISelectHandler
+public class UIHiveFirefly : MonoBehaviour, IEventSystemHandler
 {
     [SerializeField]
     private Selectable DefaultSelected;
@@ -20,12 +20,19 @@ public class UIHiveFirefly : MonoBehaviour, IEventSystemHandler, ISelectHandler
         if (Larva != null)
         {
             Larva.OnUIFocus += SelectUIElement;
+            Larva.OnUIUnfocus += SaveSelected;
+        }
+
+        if (UIHiveBrain.IsActiveUI(Larva))
+        {
+            SelectUIElement();
         }
     }
 
     private void OnDestroy()
     {
         Larva.OnUIFocus -= SelectUIElement;
+        Larva.OnUIUnfocus -= SaveSelected;
     }
 
     private void OnEnable() { }
@@ -34,26 +41,28 @@ public class UIHiveFirefly : MonoBehaviour, IEventSystemHandler, ISelectHandler
 
     private void SelectUIElement()
     {
-        if (RememberLastSelected)
+        if (RememberLastSelected && LastSelected != null)
         {
-            SelectElement(LastSelected);
+            StartCoroutine(SelectElement(LastSelected));
         }
         else
         {
-            SelectElement(DefaultSelected.gameObject);
+            StartCoroutine(SelectElement(DefaultSelected.gameObject));
         }
     }
 
-    private void SelectElement(GameObject selectable)
+    private IEnumerator SelectElement(GameObject selectable)
     {
+        EventSystem.current.SetSelectedGameObject(null);
+        yield return null;
         EventSystem.current.SetSelectedGameObject(selectable);
     }
 
-    void ISelectHandler.OnSelect(BaseEventData eventData)
+    void SaveSelected()
     {
         if (UIHiveBrain.IsActiveUI(Larva))
         {
-            LastSelected = eventData.selectedObject;
+            LastSelected = EventSystem.current.currentSelectedGameObject;
         }
     }
 }
