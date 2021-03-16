@@ -1,29 +1,48 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIHiveLarva : MonoBehaviour
 {
+    public event Action OnUIFocus;
+    public event Action OnUIUnfocus;
 
-
-    private void OnEnable()
+    private void Awake()
     {
-        UIHiveBrain.AddOpeningUI(this);
+        UIHiveBrain.OnUIListChanged += OnFocusChange;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
+        UIHiveBrain.OnUIListChanged -= OnFocusChange;
+    }
+
+    protected virtual void OnEnable()
+    {
+        UIHiveBrain.AddOpeningUI(this);
+        OnUIFocus?.Invoke();
+    }
+
+    protected virtual void OnDisable()
+    {
+        OnUIUnfocus?.Invoke();
         UIHiveBrain.RemoveClosingUI(this);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public virtual void OpenUI()
     {
+        gameObject.SetActive(true);
+    }
 
+    public virtual void CloseUI()
+    {
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
-    protected void Update()
+    protected virtual void Update()
     {
         if (UIHiveBrain.IsActiveUI(this))
         {
@@ -32,6 +51,11 @@ public class UIHiveLarva : MonoBehaviour
     }
 
     protected virtual void ActiveUIUpdate()
+    {
+
+    }
+
+    protected virtual void OnFocusChange(UIHiveLarva newFocus)
     {
 
     }

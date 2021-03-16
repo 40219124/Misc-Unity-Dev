@@ -1,17 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIHiveBrain : MonoBehaviour
+public class UIHiveBrain
 {
+    public delegate void UIFocused(UIHiveLarva focus);
+    public static event UIFocused OnUIListChanged;
+    private static UIHiveLarva previousFocus = null;
 
     private static List<UIHiveLarva> openUIs = new List<UIHiveLarva>();
-
 
     public static void AddOpeningUI(UIHiveLarva ui)
     {
         // add ui to end of open list
         openUIs.Add(ui);
+        DoNewFocusEvent();
     }
 
     public static void RemoveClosingUI(UIHiveLarva ui)
@@ -30,23 +34,37 @@ public class UIHiveBrain : MonoBehaviour
         {
             openUIs.RemoveAt(remI);
         }
+        DoNewFocusEvent();
     }
 
     public static bool IsActiveUI(UIHiveLarva ui)
     {
-        if(openUIs.Count == 0)
+        if (openUIs.Count == 0)
         {
             return false;
         }
-        return GetActiveUI() == ui;
+        return ActiveUI == ui;
     }
 
-    public static UIHiveLarva GetActiveUI()
+    public static UIHiveLarva ActiveUI
     {
-        if(openUIs.Count == 0)
+        get
         {
-            return null;
+            if (openUIs.Count == 0)
+            {
+                return null;
+            }
+            return openUIs[openUIs.Count - 1];
         }
-        return openUIs[openUIs.Count - 1];
+    }
+
+    private static void DoNewFocusEvent()
+    {
+        if (ActiveUI == previousFocus)
+        {
+            return;
+        }
+        OnUIListChanged?.Invoke(ActiveUI);
+        previousFocus = ActiveUI;
     }
 }
