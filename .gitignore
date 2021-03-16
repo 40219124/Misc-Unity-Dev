@@ -8,3 +8,4 @@ TheNebula/.vsconfig
 *.sln
 TheNebula/Logs
 TheNebula/obj
+TheNebula/Temp
