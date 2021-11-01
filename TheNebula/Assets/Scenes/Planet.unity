@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf644fcf10045b42a40f9b76aad63df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshFilter: {fileID: 572260935}
+  facePrefab: {fileID: 572260938}
 --- !u!4 &443215630
 Transform:
   m_ObjectHideFlags: 0
