@@ -32,15 +32,19 @@ public class PlanetShaper : MonoBehaviour
 
     void GenerateMesh()
     {
+        float radius = 1;
+
         float width = 2;
         float widthHalf = width * 0.5f;
-        int widthVerts = 5;
+        int widthVerts = 15;
         float widthSpacer = width / (widthVerts - 1);
 
         float height = 2;
         float heightHalf = height * 0.5f;
-        int heightVerts = 5;
+        int heightVerts = 15;
         float heightSpacer = height / (heightVerts - 1);
+
+        Vector3 n45 = (Quaternion.Euler(0, 45, 0) * Vector3.back).normalized;
 
         for (int i = 0; i < 6; ++i)
         {
@@ -54,19 +58,16 @@ public class PlanetShaper : MonoBehaviour
 
             for (float y = -heightHalf; y <= heightHalf; y += heightSpacer)
             {
+                float xAngle = 45.0f * y / heightHalf;
+                Vector3 xRot = Quaternion.Euler(xAngle, 0.0f, 0.0f) * Vector3.back;
+                Vector3 newUp = Vector3.Cross(xRot, Vector3.right).normalized;
+
+                Vector3 meeting = Vector3.Cross(newUp, n45).normalized;
+                float alpha = Vector3.Angle(meeting, xRot);
+
                 for (float x = -widthHalf; x <= widthHalf; x += widthSpacer)
                 {
-                    //verts.Add((faceQuat * new Vector3(x, y, -1)).normalized);
-                    //verts.Add(faceQuat * Quaternion.Euler(
-                    //    Mathf.Cos(Mathf.PI * y * 0.25f / height) * 45 * x / widthHalf,
-                    //    Mathf.Cos(Mathf.PI * x * 0.25f / width) * 45 * y / heightHalf,
-                    //    0) *
-                    //    Vector3.back);
-                    Vector3 xRot = Quaternion.Euler(45.0f * y / heightHalf, 0.0f, 0.0f) * Vector3.back;
-                    Vector3 newUp = Vector3.Cross(xRot, Vector3.right);
-                    verts.Add(faceQuat *
-                        (Quaternion.AngleAxis((Mathf.Asin(1/Mathf.Sqrt(3)) * Mathf.Rad2Deg) * x / widthHalf,
-                            newUp) * xRot));
+                    verts.Add(faceQuat * (Quaternion.AngleAxis(alpha * x / widthHalf, newUp) * xRot));
                 }
             }
 
@@ -78,6 +79,7 @@ public class PlanetShaper : MonoBehaviour
                 {
                     uvs.Add(new Vector2(x / (widthVerts - 1.0f), y / (heightVerts - 1.0f)));
                     colours.Add(new Color(uvs[uvs.Count - 1].x, uvs[uvs.Count - 1].y, 0));
+                    //colours.Add(Color.grey);
 
                     if (x > 0 && y > 0)
                     {
