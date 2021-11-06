@@ -10,6 +10,9 @@ public class PlanetShaper : MonoBehaviour
     MeshFilter[] meshFilters = new MeshFilter[6];
     Mesh[] meshes = new Mesh[6];
 
+    [SerializeField]
+    int edgeVerts = 90;
+
     Quaternion[] faceRotations = new Quaternion[6];
     enum eDirection { none = -1, right, up, forward, left, down, back }
     // Start is called before the first frame update
@@ -36,14 +39,15 @@ public class PlanetShaper : MonoBehaviour
     {
         float radius = 1;
 
+
         float width = 2;
         float widthHalf = width * 0.5f;
-        int widthVerts = 15;
+        int widthVerts = edgeVerts;
         float widthSpacer = width / (widthVerts - 1);
 
         float height = 2;
         float heightHalf = height * 0.5f;
-        int heightVerts = 15;
+        int heightVerts = edgeVerts;
         float heightSpacer = height / (heightVerts - 1);
 
         for (int i = 0; i < 6; ++i)
@@ -56,13 +60,13 @@ public class PlanetShaper : MonoBehaviour
             Mesh mesh = meshes[i];
             Quaternion faceQuat = faceRotations[i];
 
-            for (float y = -heightHalf; y <= heightHalf; y += heightSpacer)
+            for (float y = -heightHalf; y <= heightHalf + (heightSpacer * 0.5f); y += heightSpacer)
             {
                 float xAngle = 45.0f * y / heightHalf;
                 Vector3 xRot = Quaternion.Euler(xAngle, 0.0f, 0.0f) * Vector3.back;
                 Vector3 newUp = Vector3.Cross(xRot, Vector3.right).normalized;
 
-                for (float x = -widthHalf; x <= widthHalf; x += widthSpacer)
+                for (float x = -widthHalf; x <= widthHalf + (widthSpacer * 0.5f); x += widthSpacer)
                 {
                     Vector3 vertCircleNorm = (Quaternion.Euler(0, 90 - 45 * Mathf.Abs(x) / widthHalf, 0) * Vector3.back).normalized;
 

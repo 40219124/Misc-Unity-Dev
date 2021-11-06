@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facePrefab: {fileID: 572260938}
+  edgeVerts: 100
 --- !u!4 &443215630
 Transform:
   m_ObjectHideFlags: 0
@@ -434,13 +435,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205573136}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.23721439, y: 0.06640297, z: -0.016254844, w: 0.969049}
+  m_LocalPosition: {x: -0.39, y: 1.14, z: -2.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 27.51, y: 7.84, z: 0}
 --- !u!114 &1205573140
 MonoBehaviour:
   m_ObjectHideFlags: 0
