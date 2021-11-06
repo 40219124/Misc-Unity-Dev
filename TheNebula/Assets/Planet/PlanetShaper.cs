@@ -39,16 +39,9 @@ public class PlanetShaper : MonoBehaviour
     {
         float radius = 1;
 
-
-        float width = 2;
-        float widthHalf = width * 0.5f;
         int widthVerts = edgeVerts;
-        float widthSpacer = width / (widthVerts - 1);
 
-        float height = 2;
-        float heightHalf = height * 0.5f;
         int heightVerts = edgeVerts;
-        float heightSpacer = height / (heightVerts - 1);
 
         for (int i = 0; i < 6; ++i)
         {
@@ -60,32 +53,28 @@ public class PlanetShaper : MonoBehaviour
             Mesh mesh = meshes[i];
             Quaternion faceQuat = faceRotations[i];
 
-            for (float y = -heightHalf; y <= heightHalf + (heightSpacer * 0.5f); y += heightSpacer)
+            for (int y = 0; y < heightVerts; ++y)
             {
-                float xAngle = 45.0f * y / heightHalf;
+                float xAngle = 45.0f * (-1.0f + 2.0f * y / (heightVerts - 1));
                 Vector3 xRot = Quaternion.Euler(xAngle, 0.0f, 0.0f) * Vector3.back;
                 Vector3 newUp = Vector3.Cross(xRot, Vector3.right).normalized;
 
-                for (float x = -widthHalf; x <= widthHalf + (widthSpacer * 0.5f); x += widthSpacer)
+                for (int x = 0; x < widthVerts; ++x)
                 {
-                    Vector3 vertCircleNorm = (Quaternion.Euler(0, 90 - 45 * Mathf.Abs(x) / widthHalf, 0) * Vector3.back).normalized;
+                    Vector3 vertCircleNorm = (Quaternion.Euler(0, 90 - 45 * Mathf.Abs(2.0f * x - widthVerts + 1) / (widthVerts - 1), 0) * Vector3.back).normalized;
 
                     Vector3 meeting = Vector3.Cross(newUp, vertCircleNorm).normalized;
                     float alpha = Vector3.Angle(meeting, xRot);
 
-                    verts.Add(faceQuat * (Quaternion.AngleAxis(alpha * Mathf.Sign(x), newUp) * xRot));
-                }
-            }
+                    verts.Add(faceQuat * (Quaternion.AngleAxis(alpha * Mathf.Sign(2.0f * x - widthVerts + 1), newUp) * xRot));
+                    //verts.Add(faceQuat * new Vector3(
+                    //    -1.0f + 2.0f * x / (widthVerts - 1),
+                    //    -1.0f + 2.0f * y / (heightVerts - 1),
+                    //    -1.0f).normalized);
 
-
-
-            for (int y = 0; y < heightVerts; ++y)
-            {
-                for (int x = 0; x < widthVerts; ++x)
-                {
                     uvs.Add(new Vector2(x / (widthVerts - 1.0f), y / (heightVerts - 1.0f)));
 
-                    if (false)
+                    if (true)
                     {
                         colours.Add(new Color(uvs[uvs.Count - 1].x, uvs[uvs.Count - 1].y, 0));
                     }
@@ -119,6 +108,7 @@ public class PlanetShaper : MonoBehaviour
                     }
                 }
             }
+
 
             mesh.SetVertices(verts);
             mesh.SetUVs(0, uvs);
