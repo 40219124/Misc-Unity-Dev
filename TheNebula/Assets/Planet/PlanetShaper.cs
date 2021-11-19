@@ -13,6 +13,9 @@ public class PlanetShaper : MonoBehaviour
     [SerializeField]
     int edgeVerts = 90;
 
+    [SerializeField]
+    bool generateMesh = false;
+
     Quaternion[] faceRotations = new Quaternion[6];
     enum eDirection { none = -1, right, up, forward, left, down, back }
     // Start is called before the first frame update
@@ -51,6 +54,7 @@ public class PlanetShaper : MonoBehaviour
             List<Color> colours = new List<Color>();
 
             Mesh mesh = meshes[i];
+            mesh.Clear();
             Quaternion faceQuat = faceRotations[i];
 
             for (int y = 0; y < heightVerts; ++y)
@@ -126,5 +130,14 @@ public class PlanetShaper : MonoBehaviour
     void Update()
     {
 
+    }
+
+    private void OnValidate()
+    {
+        if (generateMesh)
+        {
+            generateMesh = false;
+            GenerateMesh();
+        }
     }
 }
