@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facePrefab: {fileID: 572260938}
-  edgeVerts: 256
+  edgeVerts: 50
   generateMesh: 0
 --- !u!4 &443215630
 Transform:

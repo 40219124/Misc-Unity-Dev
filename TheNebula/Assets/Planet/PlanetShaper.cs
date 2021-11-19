@@ -35,27 +35,22 @@ public class PlanetShaper : MonoBehaviour
         faceRotations[(int)eDirection.left] = Quaternion.FromToRotation(Vector3.back, Vector3.left);
         faceRotations[(int)eDirection.down] = Quaternion.FromToRotation(Vector3.back, Vector3.down);
         faceRotations[(int)eDirection.back] = Quaternion.FromToRotation(Vector3.back, Vector3.back);
-        GenerateMesh();
+        GenerateSphereFaces();
     }
 
-    void GenerateMesh()
+    void GenerateSphereFaces()
     {
-        float radius = 1;
-
         int widthVerts = edgeVerts;
-
         int heightVerts = edgeVerts;
 
-        for (int i = 0; i < 6; ++i)
+        // Create default mesh on the Vector3.back side of the sphere
         {
+            Mesh mesh = meshes[(int)eDirection.back];
+            mesh.Clear();
             List<Vector3> verts = new List<Vector3>();
             List<int> indxs = new List<int>();
             List<Vector2> uvs = new List<Vector2>();
             List<Color> colours = new List<Color>();
-
-            Mesh mesh = meshes[i];
-            mesh.Clear();
-            Quaternion faceQuat = faceRotations[i];
 
             for (int y = 0; y < heightVerts; ++y)
             {
@@ -70,11 +65,7 @@ public class PlanetShaper : MonoBehaviour
                     Vector3 meeting = Vector3.Cross(newUp, vertCircleNorm).normalized;
                     float alpha = Vector3.Angle(meeting, xRot);
 
-                    verts.Add(faceQuat * (Quaternion.AngleAxis(alpha * Mathf.Sign(2.0f * x - widthVerts + 1), newUp) * xRot));
-                    //verts.Add(faceQuat * new Vector3(
-                    //    -1.0f + 2.0f * x / (widthVerts - 1),
-                    //    -1.0f + 2.0f * y / (heightVerts - 1),
-                    //    -1.0f).normalized);
+                    verts.Add(Quaternion.AngleAxis(alpha * Mathf.Sign(2.0f * x - widthVerts + 1), newUp) * xRot);
 
                     uvs.Add(new Vector2(x / (widthVerts - 1.0f), y / (heightVerts - 1.0f)));
 
@@ -120,6 +111,32 @@ public class PlanetShaper : MonoBehaviour
             mesh.SetColors(colours);
             mesh.RecalculateNormals();
         }
+
+        // Duplicate and rotate existing face to create other 5 faces
+        for (int i = 0; i < 6; ++i)
+        {
+            if (i == (int)eDirection.back)
+            {
+                continue;
+            }
+            Mesh copyFromMesh = meshes[(int)eDirection.back];
+            Mesh copyToMesh = meshes[i];
+            copyToMesh.Clear();
+            Quaternion faceQuat = faceRotations[i];
+
+            copyToMesh.vertices = copyFromMesh.vertices;
+            Vector3[] verts = copyToMesh.vertices;
+            for (int v = 0; v < verts.Length; ++v)
+            {
+                verts[v] = faceQuat * verts[v];
+            }
+            copyToMesh.vertices = verts;
+
+            copyToMesh.triangles = copyFromMesh.triangles;
+            copyToMesh.uv = copyFromMesh.uv;
+            copyToMesh.colors = copyFromMesh.colors;
+            copyToMesh.RecalculateNormals();
+        }
     }
 
     int OneDFromTwoD(int x, int y, int width)
@@ -137,7 +154,7 @@ public class PlanetShaper : MonoBehaviour
         if (generateMesh)
         {
             generateMesh = false;
-            GenerateMesh();
+            GenerateSphereFaces();
         }
     }
 }
