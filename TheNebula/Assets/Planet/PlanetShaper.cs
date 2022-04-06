@@ -16,7 +16,13 @@ public class PlanetShaper : MonoBehaviour
     [SerializeField]
     bool generateMesh = false;
 
-    Quaternion[] faceRotations = new Quaternion[6];
+    Quaternion[] faceRotations = new Quaternion[6]{Quaternion.FromToRotation(Vector3.back, Vector3.right),
+        Quaternion.FromToRotation(Vector3.back, Vector3.up),
+        Quaternion.Euler(0, 180, 0),
+        Quaternion.FromToRotation(Vector3.back, Vector3.left),
+        Quaternion.FromToRotation(Vector3.back, Vector3.down),
+        Quaternion.FromToRotation(Vector3.back, Vector3.back)
+    };
     enum eDirection { none = -1, right, up, forward, left, down, back }
     // Start is called before the first frame update
     void Start()
@@ -29,12 +35,6 @@ public class PlanetShaper : MonoBehaviour
         }
         facePrefab.gameObject.SetActive(false);
 
-        faceRotations[(int)eDirection.right] = Quaternion.FromToRotation(Vector3.back, Vector3.right);
-        faceRotations[(int)eDirection.up] = Quaternion.FromToRotation(Vector3.back, Vector3.up);
-        faceRotations[(int)eDirection.forward] = Quaternion.Euler(0, 180, 0);
-        faceRotations[(int)eDirection.left] = Quaternion.FromToRotation(Vector3.back, Vector3.left);
-        faceRotations[(int)eDirection.down] = Quaternion.FromToRotation(Vector3.back, Vector3.down);
-        faceRotations[(int)eDirection.back] = Quaternion.FromToRotation(Vector3.back, Vector3.back);
         GenerateSphereFaces();
     }
 
@@ -69,7 +69,7 @@ public class PlanetShaper : MonoBehaviour
 
                     uvs.Add(new Vector2(x / (widthVerts - 1.0f), y / (heightVerts - 1.0f)));
 
-                    if (true)
+                    if (false)
                     {
                         colours.Add(new Color(uvs[uvs.Count - 1].x, uvs[uvs.Count - 1].y, 0));
                     }
@@ -137,6 +137,102 @@ public class PlanetShaper : MonoBehaviour
             copyToMesh.colors = copyFromMesh.colors;
             copyToMesh.RecalculateNormals();
         }
+
+
+        List<Vector3>[] norms = new List<Vector3>[6];
+        for (int i = 0; i < norms.Length; ++i)
+        {
+            norms[i] = new List<Vector3>();
+            meshes[i].GetNormals(norms[i]);
+        }
+
+        {
+            int x0y0 = 0;
+            int x1y0 = edgeVerts - 1;
+            int x0y1 = (edgeVerts - 1) * edgeVerts;
+            int x1y1 = edgeVerts * edgeVerts - 1;
+
+            // Edges
+            for (int i = 0; i < edgeVerts; ++i)
+            {
+                int x0yi = i * edgeVerts;
+                int x1yi = i * edgeVerts + x1y0;
+                int xiy0 = i;
+                int xjy0 = x1y0 - i;
+                int xiy1 = x0y1 + i;
+                int xjy1 = x1y1 - i;
+
+                AverageNormals(ref norms, MakeDIList(eDirection.left, x1yi, eDirection.back, x0yi));
+                AverageNormals(ref norms, MakeDIList(eDirection.back, x1yi, eDirection.right, x0yi));
+                AverageNormals(ref norms, MakeDIList(eDirection.right, x1yi, eDirection.forward, x0yi));
+                AverageNormals(ref norms, MakeDIList(eDirection.forward, x1yi, eDirection.left, x0yi));
+
+                AverageNormals(ref norms, MakeDIList(eDirection.up, xiy0, eDirection.back, xiy1));
+                AverageNormals(ref norms, MakeDIList(eDirection.up, x1yi, eDirection.right, xiy1));
+                AverageNormals(ref norms, MakeDIList(eDirection.up, xiy1, eDirection.forward, xjy1));
+                AverageNormals(ref norms, MakeDIList(eDirection.up, x0yi, eDirection.left, xjy1));
+
+                AverageNormals(ref norms, MakeDIList(eDirection.down, xiy1, eDirection.back, xiy0));
+                AverageNormals(ref norms, MakeDIList(eDirection.down, x1yi, eDirection.right, xjy0));
+                AverageNormals(ref norms, MakeDIList(eDirection.down, xiy0, eDirection.forward, xjy0));
+                AverageNormals(ref norms, MakeDIList(eDirection.down, x0yi, eDirection.left, xiy0));
+            }
+
+            // Corners
+            AverageNormals(ref norms, MakeDIList(eDirection.up, x0y0, eDirection.left, x1y1, eDirection.back, x0y1));
+            AverageNormals(ref norms, MakeDIList(eDirection.up, x1y0, eDirection.back, x1y1, eDirection.right, x0y1));
+            AverageNormals(ref norms, MakeDIList(eDirection.up, x1y1, eDirection.right, x1y1, eDirection.forward, x0y1));
+            AverageNormals(ref norms, MakeDIList(eDirection.up, x0y1, eDirection.forward, x1y1, eDirection.left, x0y1));
+
+            AverageNormals(ref norms, MakeDIList(eDirection.down, x0y1, eDirection.left, x1y0, eDirection.back, x0y0));
+            AverageNormals(ref norms, MakeDIList(eDirection.down, x1y1, eDirection.back, x1y0, eDirection.right, x0y0));
+            AverageNormals(ref norms, MakeDIList(eDirection.down, x1y0, eDirection.right, x1y0, eDirection.forward, x0y0));
+            AverageNormals(ref norms, MakeDIList(eDirection.down, x0y0, eDirection.forward, x1y0, eDirection.left, x0y0));
+        }
+
+        for (int i = 0; i < norms.Length; ++i)
+        {
+            meshes[i].SetNormals(norms[i]);
+        }
+    }
+
+    List<KeyValuePair<eDirection, int>> MakeDIList(eDirection d1, int i1, eDirection d2, int i2, eDirection d3 = eDirection.none, int i3 = -1)
+    {
+        List<KeyValuePair<eDirection, int>> outList = new List<KeyValuePair<eDirection, int>>();
+        outList.Add(new KeyValuePair<eDirection, int>(d1, i1));
+        outList.Add(new KeyValuePair<eDirection, int>(d2, i2));
+        if (d3 != eDirection.none)
+        {
+            outList.Add(new KeyValuePair<eDirection, int>(d3, i3));
+        }
+        return outList;
+    }
+
+    void AverageNormals(ref List<Vector3>[] norms, List<KeyValuePair<eDirection, int>> dirIndexes)
+    {
+        Vector3 average = Vector3.zero;
+        foreach (var pair in dirIndexes)
+        {
+            average += norms[(int)pair.Key][pair.Value];
+        }
+        average = average.normalized;
+        foreach (var pair in dirIndexes)
+        {
+            norms[(int)pair.Key][pair.Value] = average;
+        }
+    }
+
+    eDirection RotateAroundFaces(eDirection from)
+    {
+        return from switch
+        {
+            eDirection.back => eDirection.right,
+            eDirection.right => eDirection.forward,
+            eDirection.forward => eDirection.left,
+            eDirection.left => eDirection.back,
+            _ => eDirection.none,
+        };
+        ;
     }
 
     int OneDFromTwoD(int x, int y, int width)
