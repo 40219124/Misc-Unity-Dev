@@ -11,9 +11,28 @@ public class FirstPersonController : MonoBehaviour
     float Acceleration = 40f;
     [SerializeField]
     float Speed = 5f;
+    [SerializeField]
+    float JumpSpeed = 10f;
 
     Rigidbody Body;
 
+    bool _grounded = false;
+    float TimeSinceGrounded = 0.0f;
+    bool Grounded
+    {
+        get
+        {
+            return (TimeSinceGrounded < 0.1f) || _grounded;
+        }
+        set
+        {
+            _grounded = value;
+            if (!_grounded)
+            {
+                TimeSinceGrounded = 0.0f;
+            }
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -29,11 +48,17 @@ public class FirstPersonController : MonoBehaviour
     void Update()
     {
         DoMovement(InputAsset.PlayerActive.Move.ReadValue<Vector2>());
+
+        TimeSinceGrounded += Time.deltaTime;
     }
 
     void DoJump(InputAction.CallbackContext context)
     {
-        transform.Translate(Vector3.up * 3f);
+        if (!Grounded)
+        {
+            return;
+        }
+        Body.velocity += Vector3.up * JumpSpeed;
     }
 
     void DoMovement(Vector2 wantedDir)
@@ -49,7 +74,7 @@ public class FirstPersonController : MonoBehaviour
         Vector2 desVel = wantedDir * Speed;
 
         Vector2 diffVel = desVel - currVel;
-        Vector2 changeVel = diffVel.normalized * Acceleration * Time.deltaTime;
+        Vector2 changeVel = diffVel.normalized * Acceleration * (Grounded ? 1.0f : 0.1f) * Time.deltaTime;
         if (changeVel.sqrMagnitude > diffVel.sqrMagnitude)
         {
             changeVel = diffVel;
@@ -57,5 +82,25 @@ public class FirstPersonController : MonoBehaviour
 
         Vector3 newVel3d = currentVel3D + new Vector3(changeVel.x, 0f, changeVel.y);
         Body.velocity = newVel3d;
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.collider.CompareTag("Ground"))
+        {
+            Grounded = false;
+            foreach (var x in collision.contacts)
+            {
+                Grounded |= x.normal.y > 0.7f;
+            }
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.CompareTag("Ground"))
+        {
+            Grounded = false;
+        }
     }
 }

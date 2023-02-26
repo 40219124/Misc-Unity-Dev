@@ -366,6 +366,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb75fd912825174fad442d304a1e288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Acceleration: 40
+  Speed: 5
 --- !u!54 &596000060
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -603,7 +605,7 @@ GameObject:
   - component: {fileID: 1630706327}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
