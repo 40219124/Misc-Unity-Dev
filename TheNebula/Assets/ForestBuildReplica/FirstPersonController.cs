@@ -15,14 +15,18 @@ public class FirstPersonController : MonoBehaviour
     float JumpSpeed = 10f;
 
     Rigidbody Body;
+    Camera Eyes;
 
     bool _grounded = false;
     float TimeSinceGrounded = 0.0f;
+    float CoyoteTime = 0.1f;
+    float TimeSinceJump = 0.0f;
+    float JumpCD = 0.3f;
     bool Grounded
     {
         get
         {
-            return (TimeSinceGrounded < 0.1f) || _grounded;
+            return (TimeSinceGrounded < CoyoteTime) || _grounded;
         }
         set
         {
@@ -42,23 +46,28 @@ public class FirstPersonController : MonoBehaviour
         InputAsset.PlayerActive.Jump.started += DoJump;
 
         Body = GetComponent<Rigidbody>();
+
+        Eyes = GetComponentInChildren<Camera>();
     }
 
     // Update is called once per frame
     void Update()
     {
         DoMovement(InputAsset.PlayerActive.Move.ReadValue<Vector2>());
+        DoCamera(InputAsset.PlayerActive.Look.ReadValue<Vector2>());
 
         TimeSinceGrounded += Time.deltaTime;
+        TimeSinceJump += Time.deltaTime;
     }
 
     void DoJump(InputAction.CallbackContext context)
     {
-        if (!Grounded)
+        if (!Grounded || (TimeSinceJump < JumpCD))
         {
             return;
         }
         Body.velocity += Vector3.up * JumpSpeed;
+        TimeSinceJump = 0f;
     }
 
     void DoMovement(Vector2 wantedDir)
@@ -67,6 +76,8 @@ public class FirstPersonController : MonoBehaviour
         {
             wantedDir = wantedDir.normalized;
         }
+
+        wantedDir = Quaternion.Euler(new Vector3(0f, 0f, -transform.eulerAngles.y)) * wantedDir;
 
         Vector3 currentVel3D = Body.velocity;
         Vector2 currVel = new Vector2(currentVel3D.x, currentVel3D.z);
@@ -82,6 +93,22 @@ public class FirstPersonController : MonoBehaviour
 
         Vector3 newVel3d = currentVel3D + new Vector3(changeVel.x, 0f, changeVel.y);
         Body.velocity = newVel3d;
+    }
+
+    void DoCamera(Vector2 lookChangeVector)
+    {
+        transform.Rotate(Vector3.up, lookChangeVector.x * 120f * Time.deltaTime);
+
+        Vector3 currentRot = Eyes.transform.localEulerAngles;
+        currentRot.x += lookChangeVector.y * 90f * Time.deltaTime;
+        float clampX = currentRot.x;
+        if (clampX > 180)
+        {
+            clampX -= 360f;
+        }
+        clampX = Mathf.Clamp(clampX, -90f, 90f);
+        currentRot.x = clampX;
+        Eyes.transform.localEulerAngles = currentRot;
     }
 
     private void OnCollisionStay(Collision collision)

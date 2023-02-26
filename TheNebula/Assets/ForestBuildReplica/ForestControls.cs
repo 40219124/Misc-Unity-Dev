@@ -44,6 +44,15 @@ public partial class @ForestControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""38ba8a07-e290-4882-9baf-b9e8b8d4c65d"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -123,6 +132,28 @@ public partial class @ForestControls : IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7514bcaa-e032-47e2-99af-6f611e6695b1"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b20dc01c-3d18-4874-9219-fc890a7ffdb1"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": ""ScaleVector2(x=0.05,y=0.1),InvertVector2(invertX=false)"",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -133,6 +164,7 @@ public partial class @ForestControls : IInputActionCollection2, IDisposable
         m_PlayerActive = asset.FindActionMap("PlayerActive", throwIfNotFound: true);
         m_PlayerActive_Move = m_PlayerActive.FindAction("Move", throwIfNotFound: true);
         m_PlayerActive_Jump = m_PlayerActive.FindAction("Jump", throwIfNotFound: true);
+        m_PlayerActive_Look = m_PlayerActive.FindAction("Look", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -194,12 +226,14 @@ public partial class @ForestControls : IInputActionCollection2, IDisposable
     private IPlayerActiveActions m_PlayerActiveActionsCallbackInterface;
     private readonly InputAction m_PlayerActive_Move;
     private readonly InputAction m_PlayerActive_Jump;
+    private readonly InputAction m_PlayerActive_Look;
     public struct PlayerActiveActions
     {
         private @ForestControls m_Wrapper;
         public PlayerActiveActions(@ForestControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerActive_Move;
         public InputAction @Jump => m_Wrapper.m_PlayerActive_Jump;
+        public InputAction @Look => m_Wrapper.m_PlayerActive_Look;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActive; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -215,6 +249,9 @@ public partial class @ForestControls : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActiveActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActiveActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActiveActionsCallbackInterface.OnJump;
+                @Look.started -= m_Wrapper.m_PlayerActiveActionsCallbackInterface.OnLook;
+                @Look.performed -= m_Wrapper.m_PlayerActiveActionsCallbackInterface.OnLook;
+                @Look.canceled -= m_Wrapper.m_PlayerActiveActionsCallbackInterface.OnLook;
             }
             m_Wrapper.m_PlayerActiveActionsCallbackInterface = instance;
             if (instance != null)
@@ -225,6 +262,9 @@ public partial class @ForestControls : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Look.started += instance.OnLook;
+                @Look.performed += instance.OnLook;
+                @Look.canceled += instance.OnLook;
             }
         }
     }
@@ -233,5 +273,6 @@ public partial class @ForestControls : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
     }
 }
