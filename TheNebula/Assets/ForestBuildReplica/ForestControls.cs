@@ -149,7 +149,7 @@ public partial class @ForestControls : IInputActionCollection2, IDisposable
                     ""id"": ""b20dc01c-3d18-4874-9219-fc890a7ffdb1"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
-                    ""processors"": ""ScaleVector2(x=0.05,y=0.1),InvertVector2(invertX=false)"",
+                    ""processors"": ""ScaleVector2(x=0.2,y=0.1),InvertVector2(invertX=false)"",
                     ""groups"": """",
                     ""action"": ""Look"",
                     ""isComposite"": false,
