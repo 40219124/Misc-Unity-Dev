@@ -53,6 +53,24 @@ public partial class @ForestControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""LeftClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""48a977ba-d82e-4d44-8e30-58214e71aff4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RightClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""27291f27-3666-4500-ba25-c1263df1c948"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -154,6 +172,50 @@ public partial class @ForestControls: IInputActionCollection2, IDisposable
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3935afa0-aa74-4cb7-8ca5-99085a1ee574"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""04e028cf-9377-45e0-ab3d-2c78654255c0"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""707975be-43aa-43dc-b9ba-bab197de04fa"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d5ebee8c-17ce-41d9-ad02-5103923a9768"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -165,6 +227,8 @@ public partial class @ForestControls: IInputActionCollection2, IDisposable
         m_PlayerActive_Move = m_PlayerActive.FindAction("Move", throwIfNotFound: true);
         m_PlayerActive_Jump = m_PlayerActive.FindAction("Jump", throwIfNotFound: true);
         m_PlayerActive_Look = m_PlayerActive.FindAction("Look", throwIfNotFound: true);
+        m_PlayerActive_LeftClick = m_PlayerActive.FindAction("LeftClick", throwIfNotFound: true);
+        m_PlayerActive_RightClick = m_PlayerActive.FindAction("RightClick", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,6 +293,8 @@ public partial class @ForestControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActive_Move;
     private readonly InputAction m_PlayerActive_Jump;
     private readonly InputAction m_PlayerActive_Look;
+    private readonly InputAction m_PlayerActive_LeftClick;
+    private readonly InputAction m_PlayerActive_RightClick;
     public struct PlayerActiveActions
     {
         private @ForestControls m_Wrapper;
@@ -236,6 +302,8 @@ public partial class @ForestControls: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_PlayerActive_Move;
         public InputAction @Jump => m_Wrapper.m_PlayerActive_Jump;
         public InputAction @Look => m_Wrapper.m_PlayerActive_Look;
+        public InputAction @LeftClick => m_Wrapper.m_PlayerActive_LeftClick;
+        public InputAction @RightClick => m_Wrapper.m_PlayerActive_RightClick;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActive; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -254,6 +322,12 @@ public partial class @ForestControls: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
+            @LeftClick.started += instance.OnLeftClick;
+            @LeftClick.performed += instance.OnLeftClick;
+            @LeftClick.canceled += instance.OnLeftClick;
+            @RightClick.started += instance.OnRightClick;
+            @RightClick.performed += instance.OnRightClick;
+            @RightClick.canceled += instance.OnRightClick;
         }
 
         private void UnregisterCallbacks(IPlayerActiveActions instance)
@@ -267,6 +341,12 @@ public partial class @ForestControls: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
+            @LeftClick.started -= instance.OnLeftClick;
+            @LeftClick.performed -= instance.OnLeftClick;
+            @LeftClick.canceled -= instance.OnLeftClick;
+            @RightClick.started -= instance.OnRightClick;
+            @RightClick.performed -= instance.OnRightClick;
+            @RightClick.canceled -= instance.OnRightClick;
         }
 
         public void RemoveCallbacks(IPlayerActiveActions instance)
@@ -289,5 +369,7 @@ public partial class @ForestControls: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnLeftClick(InputAction.CallbackContext context);
+        void OnRightClick(InputAction.CallbackContext context);
     }
 }

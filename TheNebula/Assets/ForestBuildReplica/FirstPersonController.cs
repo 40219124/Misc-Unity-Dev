@@ -41,8 +41,7 @@ public class FirstPersonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InputAsset = new ForestControls();
-        InputAsset.PlayerActive.Enable();
+        InputAsset = InputHouse.Instance.InputAsset;
         InputAsset.PlayerActive.Jump.started += DoJump;
 
         Body = GetComponent<Rigidbody>();
