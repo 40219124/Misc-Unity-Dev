@@ -21,6 +21,17 @@ public class PlayerInteractions : MonoBehaviour
         InputAsset.PlayerActive.RightClick.started += DoRightClick;
     }
 
+    private void Update()
+    {
+        Ray forRay = Eyes.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+        RaycastHit hit;
+        Physics.Raycast(forRay, out hit);
+        if (hit.collider != null)
+        {
+            BuildingSuggestion.Instance?.ShowSuggestion(hit.point);
+        }
+    }
+
     void DoLeftClick(InputAction.CallbackContext context)
     {
         Ray forRay = Eyes.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
@@ -29,15 +40,26 @@ public class PlayerInteractions : MonoBehaviour
         if (hit.collider != null)
         {
             Debug.Log($"{hit.collider.name}");
-            if (hit.collider.name.ToLower().Contains("tree"))
+            if (hit.collider.name.ToLower().Contains("tree") && PlayerInventory.AddLog())
             {
-                Instantiate(Log, transform.position + Vector3.up * 2f, Quaternion.identity);
+                Debug.Log("Log get.");
             }
         }
     }
 
     void DoRightClick(InputAction.CallbackContext context)
     {
-
+        if (PlayerInventory.LogCount > 0)
+        {
+            Debug.Log("Used log.");
+            Ray forRay = Eyes.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+            RaycastHit hit;
+            Physics.Raycast(forRay, out hit);
+            if (hit.transform.CompareTag("Ground"))
+            {
+                PlayerInventory.UseLog();
+                BuildingSuggestion.Instance.PlaceObject(Instantiate(Log, hit.point + Vector3.up, Quaternion.identity).gameObject);
+            }
+        }
     }
 }
