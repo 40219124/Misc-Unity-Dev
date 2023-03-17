@@ -19,17 +19,7 @@ public class PlayerInteractions : MonoBehaviour
         InputAsset = InputHouse.Instance.InputAsset;
         InputAsset.PlayerActive.LeftClick.started += DoLeftClick;
         InputAsset.PlayerActive.RightClick.started += DoRightClick;
-    }
-
-    private void Update()
-    {
-        Ray forRay = Eyes.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
-        RaycastHit hit;
-        Physics.Raycast(forRay, out hit);
-        if (hit.collider != null)
-        {
-            BuildingSuggestion.Instance?.ShowSuggestion(hit.point);
-        }
+        BuildingSuggestion.Instance?.Initialise(Eyes);
     }
 
     void DoLeftClick(InputAction.CallbackContext context)
@@ -49,17 +39,17 @@ public class PlayerInteractions : MonoBehaviour
 
     void DoRightClick(InputAction.CallbackContext context)
     {
-        if (PlayerInventory.LogCount > 0)
+        if (PlayerInventory.LogCount > 0 && BuildingSuggestion.Instance.CanPlaceObject)
         {
-            Debug.Log("Used log.");
-            Ray forRay = Eyes.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+            /*Ray forRay = Eyes.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
             RaycastHit hit;
             Physics.Raycast(forRay, out hit);
             if (hit.transform.CompareTag("Ground"))
-            {
+            {*/
+                Debug.Log("Used log.");
                 PlayerInventory.UseLog();
-                BuildingSuggestion.Instance.PlaceObject(Instantiate(Log, hit.point + Vector3.up, Quaternion.identity).gameObject);
-            }
+                BuildingSuggestion.Instance.PlaceObject(Instantiate(Log, Vector3.zero, Quaternion.identity).gameObject);
+            //}
         }
     }
 }
