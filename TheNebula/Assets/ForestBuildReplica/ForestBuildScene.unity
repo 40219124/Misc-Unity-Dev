@@ -1381,18 +1381,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 679989832303785613, guid: 91f376608fa0edb428d43a2b78931efd, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 679989832303785613, guid: 91f376608fa0edb428d43a2b78931efd, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 679989832303785613, guid: 91f376608fa0edb428d43a2b78931efd, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.65
-      objectReference: {fileID: 0}
     - target: {fileID: 684178447497049352, guid: 91f376608fa0edb428d43a2b78931efd, type: 3}
       propertyPath: m_Name
       value: LogThing
@@ -1441,10 +1429,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 692106867167880087, guid: 91f376608fa0edb428d43a2b78931efd, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91f376608fa0edb428d43a2b78931efd, type: 3}
 --- !u!1001 &8264838400853337362
@@ -1454,6 +1438,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4152269651827615293, guid: 2ce40543e3e52ba4e92e020c70fea75f, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 9207893339851745873, guid: 2ce40543e3e52ba4e92e020c70fea75f, type: 3}
       propertyPath: m_Name
       value: LogThingSuggestion

@@ -38,6 +38,8 @@ public class FirstPersonController : MonoBehaviour
         }
     }
 
+    List<int> GroundingIDs = new List<int>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +69,8 @@ public class FirstPersonController : MonoBehaviour
         }
         Body.velocity += Vector3.up * JumpSpeed;
         TimeSinceJump = 0f;
+        Grounded = false;
+        Debug.Log($"Yump");
     }
 
     void DoMovement(Vector2 wantedDir)
@@ -112,21 +116,59 @@ public class FirstPersonController : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.collider.CompareTag("Ground"))
+        // ~~~ TODO: ignore certain colliders as possible "grounds" instead of checking for the set you can jump off
+        //if (collision.collider.CompareTag("Ground"))
+        //{
+        //}
+
+        Debug.Log($"{TimeSinceJump},{JumpCD},{Grounded}");
+        Debug.Log($"{TimeSinceJump >= JumpCD},{Grounded}");
+        bool testGround = false;
+        foreach (var x in collision.contacts)
         {
-            Grounded = false;
-            foreach (var x in collision.contacts)
+            testGround |= x.normal.y > 0.7f;
+        }
+        int colliderID = collision.gameObject.GetInstanceID();
+        // If not in list, add collider if grounding
+        if (!GroundingIDs.Contains(colliderID))
+        {
+            if (testGround)
             {
-                Grounded |= x.normal.y > 0.7f;
+                GroundingIDs.Add(colliderID);
             }
+        }
+        // Else if already in list, remove collider if not grounding
+        else
+        {
+            if (!testGround)
+            {
+                GroundingIDs.Remove(colliderID);
+            }
+        }
+
+        if (Grounded != GroundingIDs.Count > 0)
+        {
+            Grounded = GroundingIDs.Count > 0;
+            Debug.Log($"{Grounded}, {TimeSinceJump}");
         }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.collider.CompareTag("Ground"))
+        //if (collision.collider.CompareTag("Ground"))
+        //{
+        //    Grounded = false;
+        //}
+
+        // Remove collider from grounding list
+        int colliderID = collision.gameObject.GetInstanceID();
+        if (GroundingIDs.Contains(colliderID))
         {
-            Grounded = false;
+            GroundingIDs.Remove(colliderID);
+            if (GroundingIDs.Count == 0)
+            {
+                Grounded = false;
+            }
         }
     }
 }
