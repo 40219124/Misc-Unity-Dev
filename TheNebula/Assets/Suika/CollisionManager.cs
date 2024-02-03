@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CollisionManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class CollisionManager : MonoBehaviour
     List<int> CollidingIDs = new List<int>();
     public GameObject BallPrefab;
     public BallListSO BallList;
+
+    public Text ScoreText;
+    int Score = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +51,8 @@ public class CollisionManager : MonoBehaviour
     private IEnumerator ManageCollision(Ball source, Ball other)
     {
         yield return null;
+        Score += (1 << source.Data.Stage);
+        ScoreText.text = Score.ToString();
         List<int> ids = new List<int> { source.GetInstanceID(), other.GetInstanceID() };
         BallDataSO next = BallList.GetNextBall(source.Data);
         Vector3 newPos = (source.transform.position + other.transform.position) / 2f;
