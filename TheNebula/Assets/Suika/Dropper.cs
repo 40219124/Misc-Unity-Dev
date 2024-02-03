@@ -15,8 +15,13 @@ public class Dropper : MonoBehaviour
     float GravScale;
     bool Dropping = false;
 
+    private int NextDrop;
+
+    public int ReadNextDrop { get { return NextDrop; } }
+
     private void Start()
     {
+        RollNextBall();
         StartCoroutine(SpawnNewBall());
         InputAsset = new SuikaControls();
         InputAsset.Play.Enable();
@@ -56,7 +61,13 @@ public class Dropper : MonoBehaviour
         CurrentBall.gravityScale = 0;
         yield return null;
         CurrentBall.transform.position = transform.position;
-        CurrentBall.GetComponent<Ball>().UpdateBallData(CollisionManager.Instance.BallList.BallDatas[Random.Range(0,3)]);
+        CurrentBall.GetComponent<Ball>().UpdateBallData(CollisionManager.Instance.BallList.BallDatas[NextDrop]);
+        RollNextBall();
         Dropping = false;
+    }
+
+    private void RollNextBall()
+    {
+        NextDrop = Random.Range(0, 4);
     }
 }
